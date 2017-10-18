@@ -22,6 +22,11 @@ public class Mensajito {
     String titulo;
     String cuerpo;
 
+    @Override
+    public String toString() {
+        return "Mensajito{" + "id=" + id + ", titulo=" + titulo + ", cuerpo=" + cuerpo + '}';
+    }
+
     public Integer getId() {
         return id;
     }
@@ -63,6 +68,7 @@ public class Mensajito {
         this.titulo = titulo;
         this.cuerpo = cuerpo;
     }
+    
     
     
     
