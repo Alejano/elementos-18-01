@@ -47,10 +47,10 @@ public void run(String... strings) throws Exception{
    */
    
     //actualizar
-    /*
-    repoMensa.save(new Mensajito(1,"Master","Actualizado"));
-    System.out.println(repoMensa.findOne(1));
-    */
+    
+    //repoMensa.save(new Mensajito(2,"Master","Actualizado"));
+    //System.out.println(repoMensa.findOne(1));
+    
     
     //personalizado buscar por titulo
     /*
