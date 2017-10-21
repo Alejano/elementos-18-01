@@ -47,6 +47,13 @@ public class MiUI extends UI{
          textoCuerpo.setPlaceholder("cuerpo del mensaje");
          Button  boton=new Button("Guardar mensaje");
          
+         
+        //esto esta en vaddin server,side component
+        Grid<Mensajito> grid = new Grid<>();
+        grid.setItems((List)repoMensa.findAll());
+        grid.addColumn(Mensajito::getTitulo).setCaption("Titulo del mensaje");
+        grid.addColumn(Mensajito::getCuerpo).setCaption("Cuerpo del mensaje");
+        
          //Manejamos el evento del boton
          
          boton.addClickListener(evento->{
@@ -56,17 +63,13 @@ public class MiUI extends UI{
              
          repoMensa.save(new Mensajito(textoTitulo.getValue() ,textoCuerpo.getValue()));             
          Notification.show("se guardo el mensaje!!", Notification.TYPE_ERROR_MESSAGE);
-         textoTitulo.setPlaceholder("Escribe el titulo");
-         textoCuerpo.setPlaceholder("cuerpo del mensaje");
+        
              }
+                      grid.setItems((List)repoMensa.findAll());
+
          });
                                            
 
-        //esto esta en vaddin server,side component
-        Grid<Mensajito> grid = new Grid<>();
-        grid.setItems((List)repoMensa.findAll());
-        grid.addColumn(Mensajito::getTitulo).setCaption("Titulo del mensaje");
-        grid.addColumn(Mensajito::getCuerpo).setCaption("Cuerpo del mensaje");
 
        
          
