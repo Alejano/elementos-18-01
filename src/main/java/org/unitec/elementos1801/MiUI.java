@@ -139,6 +139,7 @@ public class MiUI extends UI{
          Notification.show("se guardo el mensaje!!", Notification.TYPE_ERROR_MESSAGE);
         
              }
+              grid.setItems((List)repoMensa.findAll());
                      
          });
         
