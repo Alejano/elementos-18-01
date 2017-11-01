@@ -20,11 +20,11 @@ public class Direccion {
     //aqui diriamos que un usuario corresponde a una direccion
     @OneToOne
     @JoinColumn(name="cuenta")        
-    Usuario u;
-    
-    String calle;
-    Integer cp;
-    String municipio;
+    private Usuario u;
+    //este Usuario es la tabla
+    private String calle;
+    private Integer cp;
+    private String municipio;
 
     //recuerda get and set con la opcion encapsulation y seleccionar todos
     public Long getId_dir() {

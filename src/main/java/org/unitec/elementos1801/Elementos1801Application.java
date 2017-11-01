@@ -9,7 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Elementos1801Application implements CommandLineRunner{
     
 @Autowired RepositorioMensajito repoMensa;
-
+@Autowired RepositorioUsuario repoUsu;
+@Autowired RepositorioDireccion repoDire;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Elementos1801Application.class, args);
@@ -60,6 +61,20 @@ public void run(String... strings) throws Exception{
     */
     
     
+    
+    //continuando con las el enlace se agrego @@Autowired RepositorioUsuario repoUsu;
+    //@Autowired RepositorioDireccion repoDire;
+    
+    //generamos el usuario
+    //Usuario u=new Usuario(33868L,"Alejandro","alejano@gmail.com");
+    //la guardamos
+    //repoUsu.save(u);
+    
+    
+    //ahora guardaremos la dependiente que es Direccion (La direccion requiere un usuario)
+    
+    Direccion d=new Direccion(new Usuario(33868L), "calle obregon", 55210, "Ecatepec");
+    repoDire.save(d);
     
     
 }

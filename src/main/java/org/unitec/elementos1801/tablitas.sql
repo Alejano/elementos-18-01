@@ -11,4 +11,6 @@ describe usuario;
 describe direccion;
 
 select *from mensajito;
+select *from usuario;
+select *from Direccion;
 
