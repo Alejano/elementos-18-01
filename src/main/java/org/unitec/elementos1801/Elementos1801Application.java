@@ -73,9 +73,14 @@ public void run(String... strings) throws Exception{
     
     //ahora guardaremos la dependiente que es Direccion (La direccion requiere un usuario)
     
-    Direccion d=new Direccion(new Usuario(33868L), "calle obregon", 55210, "Ecatepec");
-    repoDire.save(d);
+    //Direccion d=new Direccion(new Usuario(33868L), "calle obregon", 55210, "Ecatepec");
+    //repoDire.save(d);
     
+    
+    //join a la hibernate de la cuenta 33868L obtener su email y municipio
+    
+    Direccion d2 = repoDire.findOne(1L);
+    System.out.println("Correo;"+d2.getU().getEmail()+"municipio"+d2.getMunicipio());
     
 }
 
