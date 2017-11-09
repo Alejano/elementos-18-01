@@ -78,9 +78,10 @@ public void run(String... strings) throws Exception{
     
     
     //join a la hibernate de la cuenta 33868L obtener su email y municipio
-    
+    /*
     Direccion d2 = repoDire.findOne(1L);
     System.out.println("Correo;"+d2.getU().getEmail()+"municipio"+d2.getMunicipio());
+    */
     
 }
 

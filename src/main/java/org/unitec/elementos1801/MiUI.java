@@ -34,8 +34,9 @@ public class MiUI extends UI{
     protected void init(VaadinRequest request) {
         VerticalLayout layout= new VerticalLayout();
         //generamos una etiqueta
-        Label etiqueta = new Label("c(*u*c)");
+        Label etiqueta = new Label("Proyecto Java 3");
         etiqueta.addStyleName(ValoTheme.LABEL_H1);
+        
         //layout.addComponent(etiqueta);
         //setContent(layout);      
         Label etiquetaGuardar=new Label("aplicacion mensaje");
@@ -72,11 +73,6 @@ public class MiUI extends UI{
          });
                                            
 
-
-       
-         
-         
-         
          //Agregamos los layout
     
          layout.addComponent(etiqueta);
@@ -107,13 +103,19 @@ public class MiUI extends UI{
          layout2.addComponent(textoBuscarCuerpo);
          layout.addComponent(layout2);
          
+         //agregamos el boton actualizar en el loyout1
          Button botonActualizar=new Button("Actualizar");
-         botonActualizar.addStyleName(ValoTheme.BUTTON_QUIET);
-         layout.addComponent(botonActualizar);
+         botonActualizar.addStyleName(ValoTheme.BUTTON_PRIMARY);
+         layout1.addComponent(botonActualizar);
          
          setContent(layout);
          
-           //vamos a buscar por id
+         //agregamos el boton eliminar
+         Button botonEliminar=new Button("Eliminar");
+         botonEliminar.addStyleName(ValoTheme.BUTTON_PRIMARY);
+         layout1.addComponent(botonEliminar);
+         
+         //vamos a buscar por id
          
          botonBuscarId.addClickListener(evento->{
          
@@ -140,8 +142,30 @@ public class MiUI extends UI{
         
              }
               grid.setItems((List)repoMensa.findAll());
-                     
+              textoBuscarId.setValue("");
+              textoBuscarTitulo.setValue("");
+              textoBuscarCuerpo.setValue("");
          });
+         
+         botonEliminar.addClickListener(evento ->{
+         
+          if(textoBuscarId.getValue().equals("")||textoBuscarTitulo.getValue().equals("") || textoBuscarCuerpo.getValue().equals("")){
+                 Notification.show("Los campos son requeridos!!", Notification.TYPE_ERROR_MESSAGE); 
+             }else{
+             
+         repoMensa.delete(new Mensajito(Integer.parseInt(textoBuscarId.getValue()),
+                 textoBuscarTitulo.getValue() ,textoBuscarCuerpo.getValue()));             
+         Notification.show("se elimino el mensaje!!", Notification.TYPE_ERROR_MESSAGE);
+        
+             }
+              grid.setItems((List)repoMensa.findAll());
+              textoBuscarId.setValue("");
+              textoBuscarTitulo.setValue("");
+              textoBuscarCuerpo.setValue("");
+         
+         
+         });
+                 
         
         
         
