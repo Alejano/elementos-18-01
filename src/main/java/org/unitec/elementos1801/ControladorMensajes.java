@@ -23,9 +23,13 @@ public class ControladorMensajes {
     @Autowired RepositorioMensajito repoMensa;
     //aqui van las 5 operaciones basicas 
     //Buscar 
-    @RequestMapping(value="/",method=RequestMethod.GET,headers ={"Accept=application/json"} )
+    @RequestMapping(value="/{id}",method=RequestMethod.GET,headers ={"Accept=application/json"} )
 public Mensajito obtenerMensajito(@PathVariable Integer id)throws Exception{
-
     return  repoMensa.findOne(id);
 }
+
+
+
+
+
 }
